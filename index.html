@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan Buat Yiyin 💗</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #ffc0d9, #ffe6f0);
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: #fff0f6;
+      border-radius: 28px;
+      padding: 26px;
+      max-width: 400px;
+      width: 100%;
+      margin: 20px;
+      text-align: center;
+      box-shadow: 0 14px 35px rgba(255,105,180,0.45);
+      animation: muncul 0.8s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes muncul {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    h1 { color: #ff4f9a; }
+
+    .emoji {
+      font-size: 48px;
+      margin: 12px;
+      animation: goyang 2s infinite;
+    }
+
+    @keyframes goyang {
+      0%,100% { transform: rotate(0deg); }
+      50% { transform: rotate(6deg); }
+    }
+
+    p {
+      color: #444;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    button {
+      background: #ff69b4;
+      border: none;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0 6px 18px rgba(255,105,180,0.55);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+
+    #jawaban {
+      display: none;
+      margin-top: 20px;
+      font-size: 17px;
+      color: #d63384;
+      animation: fade 0.6s ease;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .love {
+      position: fixed;
+      top: -10px;
+      font-size: 22px;
+      animation: jatuh 4s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes jatuh {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Hai Yiyin 🌸</h1>
+
+    <div class="emoji">🐻🎀💗</div>
+
+    <p>
+      Halo Yiyin 🍓  
+      Ini sederhana, tapi tulus 😳  
+      setiap ngobrol sama kamu rasanya bahagia ✨
+    </p>
+
+    <p>Jadi… aku mau jujur sekarang 🌷</p>
+
+    <button onclick="mulai()">Klik dulu yaa 🥺</button>
+
+    <div id="jawaban">
+      💕💖💞  
+      <br><br>
+      Aku nyaman dan bahagia sama kamu.  
+      Senyummu itu hal paling indah buat aku 🌸  
+      <br><br>
+      Do you want to be my girlfriend?
+      <br><br>
+      <button onclick="terima()">Yaaa akuu mauu 💕</button>
+    </div>
+  </div>
+
+  <script>
+    function mulai() {
+      document.getElementById("jawaban").style.display = "block";
+      hujanLove();
+    }
+
+    function terima() {
+      alert("Yeayyy 💖 Makasih yaa Yiyin 🌸");
+    }
+
+    function hujanLove() {
+      setInterval(() => {
+        const love = document.createElement("div");
+        love.className = "love";
+        love.innerHTML = Math.random() > 0.5 ? "💗" : "💕";
+        love.style.left = Math.random() * 100 + "vw";
+        love.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(love);
+        setTimeout(() => love.remove(), 5000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
